@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>Step 1. Upload your photo</h1>
+        
+    </head>
+
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg  in messages %}
+                    <p>{{msg}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="{{url_for('check')}}" method="post" enctype="multipart/form-data">
+            <p>Body(Front):
+                <input type="file" name="Body_pic" placeholder="Upload">
+            </p>
+            <p>Face(Front):
+                <input type="file" name="Face_pic" placeholder="Upload">
+            </p>
+            
+            <button>Process</button>
+        </form>
+    </body>
+</html>
